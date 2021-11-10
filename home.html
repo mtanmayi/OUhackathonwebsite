@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+    <h1 align="center">Your Profile</h1>
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+      <li class="list-group-item">
+        {{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      
+      {% endfor %}
+    </ul>
+    <form method="POST">
+        <h6>NAME: Test</h6>
+        <h6>EMAIL: test@gmail.com</h6>
+        <h6>DATE OF ACCOUNT CREATION: 10-11-2021</h6>
+        <h6>ACCOUNT TYPE: Registered</h6>
+        <h6>Enter notes if any</h6>
+      <textarea name="note" id="note" class="form-control">
+        
+      </textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Edit Your Profile</button>
+      </div>
+    </form>
+    {% endblock %}
